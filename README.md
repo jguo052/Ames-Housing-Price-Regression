@@ -7,7 +7,7 @@
 
 One feature that **Zillow** is known for is that it **provides free public estimates on the value of any home**. In this project, **we take data on home sales in Ames, Iowa** and create several linear regression models that **attempt to predict the sale price of a home** based on some of its information (size of the home in square feet, number of bedrooms, neighborhood, etc). The value of having stronger price predictions is to improve public perception of Zillow and its reliability, ultimately increasing the number of users willing to purchase advertisement on our website.
 
-We will deem our project successful if our model predicts sale prices of unseen data well (or the error in prediction is low). More precisely, **we will call our model succesful if the Root Mean Squared Error (RMSE) is below 30,000**.
+We will deem our project successful if our model predicts sale prices of unseen data well. More precisely, **we will call our model succesful if the R squared score is above 0.75**.
 
 
 
