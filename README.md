@@ -10,6 +10,18 @@ We will deem our project successful if our model predicts sale prices of unseen 
 
 ---
 
+# Process
+
+We began by reading through the data descriptions and selecting a subset of 32 columns from the 81 total. These 32 felt like they would be the most informative for predicting `saleprice` or they appeared to columns that I wanted into somehow incorporate in the model. Many columns evaluated the quality or condition of some aspect of the home. I believed this would useful values but did not want them both, so I converted them into numerical values and took the product of the each quality-condition pair. The goal with this was to notice homes that scored high in both of these quality and condition columns. I also combined some columns in basic ways: summed full bath and half bath counts (scaling half bath counts by 1/2), and similarly summed finished basement area and unfinished basement area (again scaling unfinished basement area by 1/2). Some of the square foot related columns did not seem clear to me, so I made a more explicit column that came from the sum of the areas of the first and second floor areas. This was more or less the extent of my feature engineering.
+
+Besides removing a few outliers, I moved on to picking a more specific set of features more carefully. I looked at which numeric columns had the highest correlation to the `saleprice` which were trying to predict. The most correlated column was the square foot column `sq_ft` (first and second floor combined). From these columns, I initially excluded any that produced variance inflation factor scores larger than 5 with `sq_ft`. My first numeric features were `sq_ft` and `bsmt_weighted_sf`.
+
+I then examined the distributions within each categorical column to determine which were most diverse. My hope was that such columns would create separation between the sale prices and improve our predictions. These columns were `neighborhood` and `house_style`.
+
+This allowed me to create the first model wich obtained an R squared score of 81%. From here, I was curious about incorporating more features. I started with the ones that produced the lowest VIF scores, but this hurt my model's scores. Then I chose to incorporate more features while being a bit more lax about VIF scores, since my main concern was prediction. This improved my models scores but I believed it also made my model more overfit. This did not appear in the scores of the train and validation sets, though. I tried to combat this with Ridge and Lasso, but the scores hardly changed. My final model was one where I drop a few features to decrease overfitting and gain interpretability.
+
+---
+
 # Conclusion
 
 #### Prediction
