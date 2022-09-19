@@ -1,5 +1,4 @@
 # Problem Statement
----
 
 *In this project I am assuming the role of a Zillow employee*
 
@@ -9,60 +8,82 @@ One feature that **Zillow** is known for is that it **provides free public estim
 
 We will deem our project successful if our model predicts sale prices of unseen data well. More precisely, **we will call our model succesful if the R squared score is above 0.75**.
 
+---
+
+# Summary
 
 
 
+---
+
+# Conclusion
+
+#### Prediction
+
+Our goal was to build a linear regression model that accurately can predict the sale prices of homes in Ames, Iowa. Our metric for success was if our model exceeded an R squared score of 75%. Such a model would account for 75% of the variability in the sale price values.
+
+Our production model above achieved an R squared value of 87.9% on unseen data. This demonstrates that it produces fairly reliable price predictions and can be pushed to the public.
+
+Since this is one of the primary features Zillow offers, having stronger performing predictions is extremely relevant to our brand and credibility. Since our revenue stems from advertisement purchases, better public perception is directly related to the company's profitability.
+
+#### Inference 
+
+Beyond predicting home prices, our model also provides insight to how these different features influence the price of the home.
+
+Before we say more her is the list of the features used in our model:
+- square feet in the first and second floor
+- basement square feet (unfinished basement are counted at half size)
+- year the home was built
+- neighborhood of the home
+- number of finished stories in the home
+- the quality of the kitchen (rated 1 through 5)
+- the quality and condition of the home (rated 1 through 100)
+- the exterior quality and condition of the home (rated 1 through 25)
+
+One major take-away from our model is illustrated below. The list below shows how the price of a 1.5-story home (with a finished second floor) in different neighborhoods compare to Bloomington Heights. Of course this also allows you compare prices between the different neighborhoods outside of Bloomington Heights, too.
+
+- GrnHill: 82623.69
+- StoneBr: 41322.64
+- Veenker: 27030.92
+- NoRidge: 21249.94
+- NridgHt: 18848.16
+- Somerst: 10805.49
+- Crawfor: 8042.97
+- Timber: 7886.61
+- Gilbert: 5868.0
+- ClearCr: 3886.62
+- CollgCr: 2751.02
+- SawyerW: -3711.63
+- Mitchel: -9249.54
+- Landmrk: -11170.31
+- Blueste: -12267.77
+- NWAmes: -13529.22
+- Sawyer: -14872.17
+- NPkVill: -14928.61
+- NAmes: -16464.14
+- BrDale: -16796.03
+- Greens: -19130.41
+- SWISU: -19836.41
+- Edwards: -20379.92
+- BrkSide: -20652.11
+- MeadowV: -26773.32
+- IDOTRR: -28981.9
+- OldTown: -34586.64
+
+For example, from this list we can see that the least expensive neighborhoods Edwards, Brookside, Meadow Villag, Old Town (Excluding Iowa Department of Transportation and Railroad (IDOTRR)). This kind of information may be of interest to the public and it may be worthwhile to share on our website. This way people will have even more reasons to visit our site, increasing the value in creating ads on our site.
 
 
+#### Next Steps
+
+Our model is definitely has potential to generate stronger predictions. Also our y-value vs residuals plot show that there may be some minor sale price patterns in our data that we have not entirely captured into our model. These improvements would likely be fairly small and require a lot of time to gain with the current dataset.
+
+If there is interest pursuing stronger predictions still, the main recommendations I would make would be to consider incorporating categorical features that I ruled out because they were quite homogenous (more than 75% of the values were identical). Some of these features may do a good job at predicting the highest value homes which is where the model seems to perform the weakest according to the residuals scatterplot.
+
+Another option would be to look back through data I ruled out before beginning the project. The original dataset includes 80 features, and after some light exploratory data analysis performed outside of these notebooks, I settled on starting with 32 variables.
 
 
-# Project 2 - Ames Housing Data and Kaggle Challenge
+---
 
-Welcome to Project 2! It's time to start modeling.
-
-**Primary Learning Objectives:**
-
-1. Creating and iteratively refining a regression model
-1. Using [Kaggle](https://www.kaggle.com/) to practice the modeling process
-1. Providing business insights through reporting and presentation.
-
-You are tasked with creating a regression model based on the Ames Housing Dataset. This model will predict the price of a house at sale.
-
-The Ames Housing Dataset is an exceptionally detailed and robust dataset with over 70 columns of different features relating to houses.
-
-Secondly, we are hosting a competition on Kaggle to give you the opportunity to practice the following skills:
-
-- Refining models over time
-- Use of train-test split, cross-validation, and data with unknown values for the target to simulate the modeling process
-- The use of Kaggle as a place to practice data science
-
-As always, you will be submitting a technical report and a presentation. **You may find that the best model for Kaggle is not the best model to address your data science problem.**
-
-## Set-up
-
-Before you begin working on this project, please do the following:
-
-1. Sign up for an account on [Kaggle](https://www.kaggle.com/)
-2. **IMPORTANT**: Click the link [DSIR-822 Regression Challenge](https://www.kaggle.com/t/28bd015e506b492fb9ef1c289b3d2059) to **join** the competition (otherwise you will not be able to make submissions!)
-3. Review the material on the [DSIR-822 Regression Challenge](https://www.kaggle.com/competitions/dsir-822-project-2-regression-challenge/)
-4. Review the [data description](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
-
-## The Modeling Process
-
-1. The train dataset has all of the columns that you will need to generate and refine your models. The test dataset has all of those columns except for the target that you are trying to predict in your regression model.
-2. Generate your regression model using the training data. We expect that within this process, you'll be making use of:
-    - train-test split
-    - cross-validation / grid searching for hyperparameters
-    - strong exploratory data analysis to question correlation and relationship across predictive variables
-    - code that reproducibly and consistently applies feature transformation (such as the preprocessing library)
-3. Predict the values for your target column in the test dataset and submit your predictions to Kaggle to see how your model does against unknown data.
-    - **Note**: Kaggle expects to see your submissions in a specific format. Check the challenge's page to make sure you are formatting your CSVs correctly!
-    - **You are limited to models you've learned in class**. In other words, you cannot use XGBoost, Neural Networks or any other advanced model for this project.
-4. Evaluate your models!
-    - consider your evaluation metrics
-    - consider your baseline score
-    - how can your model be used for inference?
-    - why do you believe your model will generalize to new data?
 
 ## Submission
 
@@ -73,8 +94,6 @@ The last day for the Kaggle competition will be **Monday, Sept. 19**.
 Your technical report will be hosted on Github Enterprise. Make sure it includes:
 
 - A README.md (that isn't this file)
-- Jupyter notebook(s) with your analysis and models (renamed to describe your project)
-- At least one successful prediction submission on [DSIR-822 Regression Challenge](https://www.kaggle.com/competitions/dsir-822-project-2-regression-challenge/) --  you should see your name in the "[Leaderboard](https://www.kaggle.com/competitions/dsir-822-project-2-regression-challenge/leaderboard)" tab.
 - Data files
 - Presentation slides
 - Any other necessary files (images, etc.)
