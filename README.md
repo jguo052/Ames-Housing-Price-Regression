@@ -28,7 +28,7 @@ To decide which categorical variables to include, I examined the distribution of
 
 From here, I was curious about how much of an impact incorporating additional features would have on our linear regression model (we were quite strict with our selection of variables in our initial model). The plan was to create several other linear models along with two that were regularized. After several iterations of being more lax about VIF scores, my model's R squared score improved but I got the impression that it was becoming overfit. I tried to combat this with Ridge and Lasso regularization, but the scores hardly changed.
 
-![A bar graph of R squared scores for different linear models.](../images/iteration_scores.png)
+![A bar graph of R squared scores for different linear models.](https://github.com/jguo052//blob/[branch]/image.jpg?raw=true)
 
 The final model was produced by including a few additional features from our initial model, namely: garage area, kitchen quality, quality-condition, and exterior quality-condition. This improved the R squared score to 87% and did not feel like it tarnished the interpretability of the model too much.
 
